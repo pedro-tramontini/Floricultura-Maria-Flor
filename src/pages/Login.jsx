@@ -1,4 +1,4 @@
-import { Box, Button, Chip, Divider, InputAdornment, Link, Stack, TextField, ThemeProvider } from '@mui/material'
+import { Box, Button, Chip, Divider, InputAdornment, Stack, TextField } from '@mui/material'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -8,10 +8,12 @@ import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useEffect, useState } from 'react';
-import {shadows} from '@mui/system'
+import { useNavigate } from 'react-router-dom';
 // import cover from "../assets/bk_flowers3.png"
 
 export default function Login() {
+     const navigate = useNavigate()
+
 
     const[isMobile, setIsMobile] =useState(false);
 
@@ -32,7 +34,7 @@ export default function Login() {
                     <Typography variant='h2' sx={{fontWeight: 400}}>Novo aqui?</Typography>
                     <Typography variant='h6'>Faça o seu cadastro para conhecer mais sobre a floricultura Maria Flor!</Typography>
                     <Box sx={{display: 'flex', justifyContent: 'center'}}>
-                    <Button variant="contained" color='secondary' sx={{height: 50, borderRadius: 6, width: '50%'}}>Cadastro</Button>
+                    <Button onClick={() =>navigate('/register')} variant="contained" color='secondary' sx={{height: 50, borderRadius: 6, width: '50%'}}>Cadastro</Button>
                     </Box>           
                 </Box>
             </Box>
@@ -86,7 +88,7 @@ export default function Login() {
                         </FormControl>
 
                             <Divider sx={{paddingBottom: 2}}>
-                                <Chip  label="OR" sx={{border: 0, color: 'terciary.ligth'}} variant='outlined'/>
+                                <Chip  label="OU" sx={{border: 0, color: 'terciary.ligth'}} variant='outlined'/>
                             </Divider>
 
                             <Stack spacing={2} direction='row' sx={{justifyContent: 'center'}}>
@@ -96,10 +98,8 @@ export default function Login() {
                             </Stack>
 
                         <FormControl sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
-                            <Typography variant='body1' color='terciary.ligth' sx={{paddingBlock: 2, marginRight: .5}}>Need and account?</Typography>
-                            <Link href='#' color='terciary.ligth'>
-                            <Typography variant='body1' color='terciary.ligth'>SIGN UP</Typography>
-                            </Link>
+                            <Typography variant='body1' color='terciary.ligth' sx={{paddingBlock: 2, marginRight: .5}}>Não possui cadastro?</Typography>
+                            <Typography onClick={() =>navigate('/register')} sx={{cursor: 'pointer'}} variant='body1' color='terciary.ligth'>Cadastre-se</Typography>
                         </FormControl>
                     </Box>
                 </Box>

@@ -18,10 +18,4 @@ export const theme = createTheme({
             ligth: '#818385'
         },
         },
-    
-    customColors: {
-        customRed: {
-            main: '#DB4437'
-        }
-    }
 })

@@ -1,16 +1,20 @@
-import { Box, Button, Chip, Divider, InputAdornment, Link, Stack, TextField, ThemeProvider } from '@mui/material'
+import { Box, Button, Chip, Divider, Grid, InputAdornment, Link, Stack, TextField, ThemeProvider } from '@mui/material'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import FormControl from '@mui/material/FormControl';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Register() {
+    const navigate = useNavigate()
+
+
     return(
         <>
         <Box  sx={{backgroundColor: '#FBB2CB', height: "100%", minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
 
             <Container sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} >
-                <Box sx={{boxShadow: 10, margin: '5%',display: 'flex', justifyContent: 'center', padding: 2 ,backgroundColor: '#E6EBEC', height: '100%', width: 400, borderRadius: 2}}>
+                <Box sx={{boxShadow: 10, margin: '5%',display: 'flex', justifyContent: 'center', padding: 2 ,backgroundColor: '#E6EBEC', height: '100%', width: 480, borderRadius: 2}}>
                     <Box sx={{padding: 1}}>
                         <FormControl>
                             <Typography variant='h5' color='terciary' sx={{paddingBlock: 1}}>Cadastro Cliente</Typography>
@@ -19,6 +23,7 @@ export default function Register() {
                         <FormControl variant='filled' sx={{width: '100%'}} >
                             <Typography variant='body1' color='terciary' sx={{paddingBlock: 1}}>Nome</Typography>
                             <TextField
+                                required
                                 variant='filled'
                                 color='terciary'
                                 label="Nome"
@@ -32,16 +37,33 @@ export default function Register() {
                             <Typography variant='body1' color='terciary' sx={{paddingBlock: 1}}>Telefone</Typography>
                         </FormControl>
 
-                        <FormControl variant='filled' sx={{width: '100%'}} >
-                            <TextField
-                                variant='filled'
-                                color='terciary'
-                                label="Telefone"
-                                id="outlined-start-adornment"
-                                sx={{width: '100%'}}
-                                
-                            />              
-                        </FormControl>
+                        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                            <Grid size={{md: 3, xs: 12}}>
+                                <FormControl variant='filled' sx={{width: '100%'}} >
+                                    <TextField
+                                        required
+                                        variant='filled'
+                                        color='terciary'
+                                        label="DDD"
+                                        id="outlined-start-adornment"
+                                        sx={{width: '100%'}}
+                                        />              
+                                </FormControl>
+                            </Grid>
+                            <Grid size={{md: 9, xs: 12}}>
+                                <FormControl variant='filled' sx={{width: '100%'}} >
+                                    <TextField
+                                        required
+                                        variant='filled'
+                                        color='terciary'
+                                        label="Telefone"
+                                        id="outlined-start-adornment"
+                                        sx={{width: '100%'}}
+                                        
+                                        />              
+                                </FormControl>
+                            </Grid>
+                        </Grid>
 
                          <FormControl>
                             <Typography variant='body1' color='terciary' sx={{paddingBlock: 1}}>Email</Typography>
@@ -49,6 +71,7 @@ export default function Register() {
 
                         <FormControl variant='filled' sx={{width: '100%'}} >
                             <TextField
+                                required
                                 variant='filled'
                                 color='terciary'
                                 label="Email"
@@ -62,56 +85,72 @@ export default function Register() {
                             <Typography variant='body1' color='terciary' sx={{paddingBlock: 1}}>Endereço</Typography>
                         </FormControl>
 
-                        <FormControl variant='filled' sx={{width: '100%'}} >
-                            <TextField
-                                variant='filled'
-                                color='terciary'
-                                label="Endereço"
-                                id="outlined-start-adornment"
-                                sx={{width: '100%'}}
-                                
-                            />              
-                        </FormControl>
-
-                         <FormControl>
-                            <Typography variant='body1' color='terciary' sx={{paddingBlock: 1}}>Cidade</Typography>
-                        </FormControl>
-
-                        <FormControl variant='filled' sx={{width: '100%'}} >
-                            <TextField
-                                variant='filled'
-                                color='terciary'
-                                label="Cidade"
-                                id="outlined-start-adornment"
-                                sx={{width: '100%'}}
-                               
-                            />              
-                        </FormControl>
-
-                         <FormControl>
-                            <Typography variant='body1' color='terciary' sx={{paddingBlock: 1}}>Senha</Typography>
-                        </FormControl>
-
-                        <FormControl variant='filled' sx={{width: '100%'}} >
-                            <TextField
-                                variant='filled'
-                                color='terciary'
-                                label="Password"
-                                id="outlined-start-adornment"
-                                sx={{width: '100%'}}
-                               
-                            />              
-                        </FormControl>
+                        <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                            <Grid size={{md: 8.5, xs: 12}}>
+                                <FormControl variant='filled' sx={{width: '100%'}} >
+                                <TextField
+                                    required
+                                    variant='filled'
+                                    color='terciary'
+                                    label="Rua"
+                                    id="outlined-start-adornment"
+                                    sx={{width: '100%'}}
+                                    />              
+                                </FormControl>                           
+                            </Grid>
+                            <Grid size={{md: 3.5, xs: 12}}>
+                                <FormControl variant='filled' sx={{width: '100%'}} >
+                                <TextField
+                                    required
+                                    variant='filled'
+                                    color='terciary'
+                                    label="Número"
+                                    id="outlined-start-adornment"
+                                    sx={{width: '100%'}}
+                                    />              
+                                </FormControl>                           
+                            </Grid>
+                            <Grid size={{md: 7, xs: 12}}>
+                                <FormControl variant='filled' sx={{width: '100%'}} >
+                                <TextField
+                                    required
+                                    variant='filled'
+                                    color='terciary'
+                                    label="Bairro"
+                                    id="outlined-start-adornment"
+                                    sx={{width: '100%'}}
+                                    />              
+                                </FormControl>                           
+                            </Grid>
+                            <Grid size={{md: 5, xs: 12}}>
+                                <FormControl variant='filled' sx={{width: '100%'}} >
+                                <TextField
+                                    required
+                                    variant='filled'
+                                    color='terciary'
+                                    label="CEP"
+                                    id="outlined-start-adornment"
+                                    sx={{width: '100%'}}
+                                    />              
+                                </FormControl>                           
+                            </Grid>
+                        </Grid>
 
                         <FormControl sx={{width: '100%', paddingBlock: 2}}>
-                            <Button variant="contained" color='secondary' sx={{borderRadius: 0}}>Cadastrar</Button>
+                            <Button onClick={() =>navigate('/login')} variant="contained" color='secondary' sx={{borderRadius: 0}}>Cadastrar</Button>
                         </FormControl>
+
+                            <Divider sx={{paddingBottom: 2}}>
+                                <Chip  label="OU" sx={{border: 0, color: 'terciary.ligth'}} variant='outlined'/>
+                            </Divider>
+
                         <FormControl sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
-                            <Typography variant='body1' color='terciary.ligth' sx={{paddingBlock: 2, marginRight: .5}}>Já tem uma conta?</Typography>
+                            <Typography variant='body1' color='terciary.ligth' sx={{marginRight: .5}}>Já possui uma conta?</Typography>
                             <Link href='#' color='terciary.ligth'>
-                            <Typography variant='body1' color='terciary.ligth'>Fazer Login</Typography>
+                            <Typography onClick={() =>navigate('/login')} variant='body1' color='terciary.ligth'>Faça login</Typography>
                             </Link>
                         </FormControl>
+                        
                     </Box>
                 </Box>
             </Container>
