@@ -8,7 +8,8 @@ import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useEffect, useState } from 'react';
-// import cover from "../assets/lines.png"
+import {shadows} from '@mui/system'
+// import cover from "../assets/bk_flowers3.png"
 
 export default function Login() {
 
@@ -24,9 +25,9 @@ export default function Login() {
     //backgroundImage: `url(${cover})`,backgroundRepeat: 'no-repeat', backgroundSize: '79%',
     return(
         <>
-        <Box  sx={{backgroundColor: '#FBB2CB', minHeight: "100vh", display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <Box  sx={{flexDirection: isMobile ? 'column' : 'row', backgroundColor: '#FBB2CB', minHeight: "100vh", display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             {!isMobile && (
-            <Box sx={{backgroundColor: '#E6EBEC', minHeight: "100vh",width: '120vh', display: 'flex',flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '5%'}}>
+            <Box sx={{boxShadow: 10,backgroundColor: '#E6EBEC', minHeight: "100vh",width: '120vh', display: 'flex',flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '5%'}}>
                 <Box sx={{display: 'flex',flexDirection: 'column', justifyContent: 'center', textAlign: 'center', height: 500, width: 380, gap: 2}}>
                     <Typography variant='h2' sx={{fontWeight: 400}}>Novo aqui?</Typography>
                     <Typography variant='h6'>Faça o seu cadastro para conhecer mais sobre a floricultura Maria Flor!</Typography>
@@ -38,8 +39,8 @@ export default function Login() {
 
             )}
 
-            <Container sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} >
-                <Box sx={{display: 'flex', justifyContent: 'center',padding: 2 ,backgroundColor: '#E6EBEC', height: 500, width: 400, borderRadius: 2}}>
+            <Container sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '50%'}} >
+                <Box sx={{boxShadow: 10,display: 'flex', justifyContent: 'center',padding: 2 ,backgroundColor: '#E6EBEC', height: 500, width: 400, borderRadius: 2}}>
                     <Box sx={{padding: 1}}>
                         <FormControl>
                             <Typography variant='h5' color='terciary' sx={{paddingBlock: 1}}>Login</Typography>
@@ -69,7 +70,7 @@ export default function Login() {
                             <TextField
                                 variant='filled'
                                 color='terciary'
-                                label="PassWord"
+                                label="Password"
                                 id="outlined-start-adornment"
                                 sx={{width: '100%'}}
                                 slotProps={{
