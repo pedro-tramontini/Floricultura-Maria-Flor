@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material";
-
+import { grey } from "@mui/material/colors";
 export const theme = createTheme({
     typography: {
         fontFamily: [
@@ -17,5 +17,11 @@ export const theme = createTheme({
             main: '#393A3B',
             ligth: '#818385'
         },
+        pink: {
+            main: '#FBB2CB'
+        },
+        grey: {
+            main: grey[50]
+        }
         },
 })
