@@ -3,6 +3,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import HomePage from "./pages/HomePage";
 import Home from "./components/Home";
+import RegisterFlower from "./pages/RegisterFlower";
 
 export const router = createBrowserRouter([
     { path: '/login',
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
     },
     { path: '/register',
       element: <Register />,
+      children: []
+    },
+    { path: '/registerflower',
+      element: <RegisterFlower />,
       children: []
     },
     { path: '/homepage',

@@ -25,7 +25,7 @@ export default function HomePage() {
         </Box>
         <Outlet />
         <Box boxShadow={15} sx={{minHeight: '10vh', bgcolor: 'pink.main', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-            <Typography color="grey.main" variant="h6">Todos os direitos reservados à &copy; Maria FLor</Typography>
+            <Typography color="grey.main" variant="h6">Todos os direitos reservados à &copy;Maria FLor</Typography>
         </Box>
     </Box>
     )
