@@ -1,0 +1,46 @@
+{
+  "Cards": [
+    {
+      "id": 1,
+      "nome": "flor_1",
+      "variety": "Buquê",
+      "Preço": "R$ 1000,00"
+    },
+    {
+      "id": 2,
+      "nome": "flor_2",
+      "variety": "Buquê",
+      "Preço": "R$ 1000,00"
+    },
+    {
+      "id": 3,
+      "nome": "flor_2",
+      "variety": "Buquê",
+      "Preço": "R$ 1000,00"
+    },
+    {
+      "id": 4,
+      "nome": "flor_2",
+      "variety": "Buquê",
+      "Preço": "R$ 1000,00"
+    },
+    {
+      "id": 5,
+      "nome": "flor_2",
+      "variety": "Buquê",
+      "Preço": "R$ 1000,00"
+    },
+    {
+      "id": 6,
+      "nome": "flor_2",
+      "variety": "Buquê",
+      "Preço": "R$ 1000,00"
+    },
+    {
+      "id": "fe4f",
+      "nome": "flor de primaveira",
+      "variety": "Buquê",
+      "Preço": "30,00"
+    }
+  ]
+}

@@ -4,6 +4,8 @@ import Register from "./pages/Register";
 import HomePage from "./pages/HomePage";
 import Home from "./components/Home";
 import RegisterFlower from "./pages/RegisterFlower";
+import LoggedPage from "./pages/LoggedPage";
+import HomeLogged from "./components/HomeLogged";
 
 export const router = createBrowserRouter([
     { path: '/login',
@@ -26,6 +28,20 @@ export const router = createBrowserRouter([
       element: <RegisterFlower />,
       children: []
     },
+
+    //Página logada
+    { path: '/logged',
+      element: <LoggedPage />,
+      children: [
+        {
+          path: 'homelogged',
+          element: <HomeLogged />,
+          children:[]
+        }
+      ]
+    },
+    
+    //Página não logada, do cliente
     { path: '/homepage',
       element: <HomePage />,
       children: [

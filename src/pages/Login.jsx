@@ -21,8 +21,8 @@ export default function Login() {
         const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent); // Pode ajustar esse valor conforme necessário
         if (mobile) {
             setIsMobile(true);
-        }
-    }, []);
+        }
+    }, []);
 
     //backgroundImage: `url(${cover})`,backgroundRepeat: 'no-repeat', backgroundSize: '79%',
     return(

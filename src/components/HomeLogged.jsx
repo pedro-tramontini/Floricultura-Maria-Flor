@@ -1,8 +1,8 @@
-import { Box, Grid} from "@mui/material";
+import { Box, createTheme, Grid, Typography, useMediaQuery, useTheme} from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CardFlower from "./CardFlower";
-export default function Home() {
+export default function HomeLogged() {
 
 
 
@@ -22,7 +22,7 @@ export default function Home() {
     return(
     <Box component="section" sx={{minHeight: "100vh", display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <Box sx={{maxWidth: '80%'}}>
-            <Grid size={{xs: 12, md: 6}} container spacing={2} sx={{display: "flex", alignItems: 'center', justifyContent: 'center', padding: 3, paddingTop: 10}}>
+            <Grid size={{xs: 12, md: 6}} container spacing={2} sx={{display: "flex", alignItems: 'center', justifyContent: 'center', padding: 2, paddingTop: 10}}>
                 {flores.map(flor => (
                     <Grid  sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} key={flor.id}>
                         <CardFlower flor={flor} />

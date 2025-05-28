@@ -3,7 +3,39 @@ import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import FormControl from '@mui/material/FormControl';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
 
+
+export default function RegisterFlower() {
+    const navigate = useNavigate()
+    const [errorName, setErrorName] = useState(false)
+    const [errorPreco, setErrorPreco] = useState(false)
+    const [flowerDataObj, setFlowerDataObj] = useState([])
+
+    const handleSubmit = async (evento) => {
+        evento.preventDefault()
+        setErrorName()
+        setErrorPreco()
+        const data = new FormData(evento.currentTarget)
+
+        if (data.get('nome') == "") {
+            setErrorName(true)
+        }
+        
+        if (data.get('preco') == "") {
+            setErrorPreco(true)
+        }
+
+        if (data.get('nome') && data.get('preco')) {
+            axios.post('http://localhost:8000/Cards', {
+            "nome": data.get('nome'),
+            "variety": data.get('variedade'),
+            "Preço": data.get('preco')
+           })
+        }
+    }
+    
     const tipos_flores = [
         {
             value: 'Buquê',
@@ -23,40 +55,6 @@ import { useNavigate } from 'react-router-dom';
         },
     ]
 
-
-    const handleSubmit = async (evento) => {
-        evento.preventDefault();
-
-        const data = new FormData(evento.currentTarget)
-        const nome = data.get('nome')
-        const ddd = data.get('ddd')
-        const telefone = data.get('telefone')
-        const email = data.get('email')
-        const rua = data.get('rua')
-        const número = data.get('número')
-        const bairro = data.get('bairro')
-        const cep = data.get('cep')
-
-        const send = {
-            nome: nome,
-            ddd: ddd,
-            telefone: telefone,
-            email: email,
-            rua: rua,
-            número: número,
-            bairro: bairro,
-            cep: cep,
-        }
-
-        console.log(send)
-    }
-
-
-export default function RegisterFlower() {
-    const navigate = useNavigate()
-
-
-
     return(
         <>
         <Box  sx={{backgroundColor: '#FBB2CB', height: "100%", minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
@@ -66,7 +64,7 @@ export default function RegisterFlower() {
                 {/* Nomes */}
                 <Box sx={{boxShadow: 10, margin: '5%',display: 'flex', justifyContent: 'center', padding: 2 ,backgroundColor: '#E6EBEC', height: '100%', width: 480, borderRadius: 2}}>
                     <Box sx={{padding: 1}}>
-                        <form onSubmit={handleSubmit} id='form-new'>
+                        <form noValidate onSubmit={handleSubmit} id='form-new'>
                             <FormControl>
                                 <Typography variant='h5' color='terciary' sx={{paddingBlock: 1}}>Cadastro de Flores</Typography>
                             </FormControl>
@@ -74,7 +72,8 @@ export default function RegisterFlower() {
                             <FormControl variant='filled' sx={{width: '100%'}} >
                                 <Typography variant='body1' color='terciary' sx={{paddingBlock: 1}}>Nome</Typography>
                                 <TextField
-                                    name='nome'           
+                                    name='nome'
+                                    error={errorName}
                                     slotProps={{htmlInput: { maxLength: 60 }}}                         
                                     required
                                     variant='filled'
@@ -82,7 +81,6 @@ export default function RegisterFlower() {
                                     label="Nome"
                                     id="outlined-start-adornment"
                                     sx={{width: '100%'}}
-                                    
                                     />                    
                             </FormControl>
                             
@@ -95,8 +93,8 @@ export default function RegisterFlower() {
                                 <Grid size={{md: 9, xs: 12}}>
                                     <FormControl variant='filled' sx={{width: '100%'}} >
                                         <TextField
-                                            name='tipo'
-                                            select
+                                            name="variedade"
+                                            select defaultValue="Arranjo Florais"
                                             label="Tipo"
                                             helperText="Por favor, selectione a categoria da flor"
                                             slotProps={{htmlInput: { maxLength: 11, minLength: 11 }}}
@@ -123,24 +121,25 @@ export default function RegisterFlower() {
 
                             <FormControl variant='filled' sx={{width: '100%'}} >
                                 <TextField 
+                                        error={errorPreco}
+                                        name='preco'
                                     slotProps={{
-                                    input: {
-                                        startAdornment: <InputAdornment position="start">$</InputAdornment>,
-                                    },}}
-                                    pattern
-                                    type='text'
-                                    name='preco'
-                                    required
-                                    variant='filled'
-                                    color='terciary'
-                                    label="Preço"
-                                    id="outlined-start-adornment"
-                                    sx={{width: '100%'}}
+                                        input: {
+                                            startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                        },}}
+                                        type='text'
+                                        required
+                                        variant='filled'
+                                        color='terciary'
+                                        label="Preço"
+                                        id="outlined-start-adornment"
+                                        sx={{width: '100%'}}
                                     />              
                             </FormControl>
 
                             <FormControl sx={{width: '100%', paddingBlock: 2}}>
-                                <Button onClick={() =>navigate('/login')} type='submit' variant="contained" color='secondary' sx={{borderRadius: 0}}>Cadastrar</Button>
+                                <Button type='submit' variant="contained" color='secondary' sx={{borderRadius: 0}}>Cadastrar</Button>
+                                {/* onClick={() =>navigate('/login')} */}
                             </FormControl>
                         </form>
                         
