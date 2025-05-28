@@ -1,0 +1,37 @@
+{
+  "Cadasters": [
+    {
+      "id": 1,
+      "nome": "Pedro",
+      "ddd": "54",
+      "telefone": "99999-9999",
+      "email": "pedro@gmail.com",
+      "rua": "mauá",
+      "número": "15",
+      "bairro": "são jacó",
+      "cep": "98200-000"
+    },
+    {
+      "id": "c516",
+      "nome": "Pedro",
+      "ddd": "55",
+      "telefone": "993477890",
+      "email": "batata@gmail.com",
+      "rua": "Mauá",
+      "número": null,
+      "bairro": "São Jacó",
+      "cep": "99999999"
+    },
+    {
+      "id": "03e9",
+      "nome": "d",
+      "ddd": "d",
+      "telefone": "d",
+      "email": "d",
+      "rua": "d",
+      "número": null,
+      "bairro": "d",
+      "cep": "d"
+    }
+  ]
+}
