@@ -1,46 +1,58 @@
 {
   "Cards": [
     {
-      "id": 1,
-      "nome": "flor_1",
-      "variety": "Buquê",
-      "Preço": "R$ 1000,00"
-    },
-    {
-      "id": 2,
-      "nome": "flor_2",
-      "variety": "Buquê",
-      "Preço": "R$ 1000,00"
-    },
-    {
-      "id": 3,
-      "nome": "flor_2",
-      "variety": "Buquê",
-      "Preço": "R$ 1000,00"
-    },
-    {
-      "id": 4,
-      "nome": "flor_2",
-      "variety": "Buquê",
-      "Preço": "R$ 1000,00"
-    },
-    {
-      "id": 5,
-      "nome": "flor_2",
-      "variety": "Buquê",
-      "Preço": "R$ 1000,00"
-    },
-    {
-      "id": 6,
-      "nome": "flor_2",
-      "variety": "Buquê",
-      "Preço": "R$ 1000,00"
-    },
-    {
       "id": "fe4f",
       "nome": "flor de primaveira",
       "variety": "Buquê",
       "Preço": "30,00"
+    },
+    {
+      "id": "594a",
+      "nome": "flor_rosa",
+      "variety": "Arranjo Florais",
+      "Preço": "12"
+    },
+    {
+      "id": "39dc",
+      "nome": "flor_de_primaveira",
+      "variety": "Buquê",
+      "Preço": "199,99"
+    },
+    {
+      "id": "9945",
+      "nome": "teste1",
+      "variety": "Arranjo Florais",
+      "Preço": "1111"
+    },
+    {
+      "id": "2808",
+      "nome": "teste2",
+      "variety": "Arranjo Florais",
+      "Preço": "4324"
+    },
+    {
+      "id": "acd4",
+      "nome": "teste4",
+      "variety": "Arranjo Florais",
+      "Preço": "12312"
+    },
+    {
+      "id": "49e7",
+      "nome": "teste543",
+      "variety": "Flores em Cachepô",
+      "Preço": "1231231"
+    },
+    {
+      "id": "8c17",
+      "nome": "flor_rosaaaaa",
+      "variety": "Buquê",
+      "Preço": "199,99"
+    },
+    {
+      "id": "b4a2",
+      "nome": "flor_rosa123",
+      "variety": "Buquê",
+      "Preço": "199,99"
     }
   ]
 }

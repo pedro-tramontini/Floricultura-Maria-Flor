@@ -1,7 +1,7 @@
 {
   "Cadasters": [
     {
-      "id": 1,
+      "id": "1",
       "nome": "Pedro",
       "ddd": "54",
       "telefone": "99999-9999",
@@ -32,6 +32,17 @@
       "número": null,
       "bairro": "d",
       "cep": "d"
+    },
+    {
+      "id": "7fe5",
+      "nome": "Daniel",
+      "ddd": "054",
+      "telefone": "999234567",
+      "email": "daniel123futebolamoointer@gmail.com",
+      "rua": "escura",
+      "número": null,
+      "bairro": "ptlandia",
+      "cep": "13131133"
     }
   ]
 }

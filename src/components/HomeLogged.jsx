@@ -1,9 +1,10 @@
-import { Box, createTheme, Grid, Typography, useMediaQuery, useTheme} from "@mui/material";
+import { Box, Grid} from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CardFlower from "./CardFlower";
-export default function HomeLogged() {
+import DeleteIcon from '@mui/icons-material/Delete';
 
+export default function Home() {
 
 
     const[flores, setFlores] = useState([]);
@@ -18,6 +19,16 @@ export default function HomeLogged() {
             })
     })
 
+        const deleteCard = (id) => {
+        axios.delete(`https://localhost:8000/Cards/${id}`)
+            .then(() => {
+                setFlores(flores.filter(id => flor.id !== id))
+            })
+            .catch((error) => {
+                console.log('Erro ao deletar', error)
+            })
+        }
+
 
     return(
     <Box component="section" sx={{minHeight: "100vh", display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -25,7 +36,7 @@ export default function HomeLogged() {
             <Grid size={{xs: 12, md: 6}} container spacing={2} sx={{display: "flex", alignItems: 'center', justifyContent: 'center', padding: 2, paddingTop: 10}}>
                 {flores.map(flor => (
                     <Grid  sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} key={flor.id}>
-                        <CardFlower flor={flor} />
+                        <CardFlower flor={flor} deleteCard={deleteCard} icone={<DeleteIcon fontSize="large" color="secondary"/>}/>
                     </Grid>
                 ))}
             </Grid>

@@ -19,7 +19,6 @@ export default function Register() {
     const [errorNumero, setErrorNumero] = useState(false)
     const [errorBairro, setErrorBairro] = useState(false)
     const [errorCep, setErrorCep] = useState(false)
-    const [flowerCadasterObj, setFlowerCadasterObj] = useState([])
 
     
     const handleSubmit = async (evento) => {

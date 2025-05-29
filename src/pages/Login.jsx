@@ -9,11 +9,51 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 // import cover from "../assets/bk_flowers3.png"
 
 export default function Login() {
-     const navigate = useNavigate()
+    const navigate = useNavigate()
 
+    const[cadastro, setCadastro] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:8001/Cadasters")
+            .then(response => {
+                setCadastro(response.data)   
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+        })
+
+
+        const [errorLogin, setErrorLogin] = useState(false)
+        const [errorPassword, setErrorPassword] = useState(false)
+        const [login, setLogin] = useState('')
+        const [password, setPassword] = useState('')
+
+        const handleSubmit = async (evento) => {
+        evento.preventDefault()
+        setErrorLogin()
+        setErrorPassword()
+
+        const data = new FormData(evento.currentTarget)
+
+        if (data.get('login') == "") {
+                setErrorLogin(true)
+            }
+            
+        if (data.get('password') == "") {
+                setErrorPassword(true)
+            }
+            
+        if (data.get('login') && data.get('password') ) {
+            setLogin(data.get('login')),
+            setPassword(data.get('password'))
+
+        }
+    }
 
     const[isMobile, setIsMobile] =useState(false);
 
@@ -40,8 +80,9 @@ export default function Login() {
             </Box>
 
             )}
-
             <Container sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '50%'}} >
+
+            <form noValidate onSubmit={handleSubmit}>
                 <Box sx={{boxShadow: 10,display: 'flex', justifyContent: 'center',padding: 2 ,backgroundColor: '#E6EBEC', height: 500, width: 400, borderRadius: 2}}>
                     <Box sx={{padding: 1}}>
                         <FormControl>
@@ -51,6 +92,8 @@ export default function Login() {
                         <FormControl variant='filled' sx={{width: '100%'}} >
                             <Typography variant='body1' color='terciary' sx={{paddingBlock: 1}}>Email</Typography>
                             <TextField
+                                name='login'
+                                error={errorLogin}
                                 variant='filled'
                                 color='terciary'
                                 label="Login"
@@ -58,10 +101,10 @@ export default function Login() {
                                 sx={{width: '100%'}}
                                 slotProps={{
                                     input: {
-                                    endAdornment: <InputAdornment > <AccountCircleIcon color='terciary'/></InputAdornment>,
+                                        endAdornment: <InputAdornment > <AccountCircleIcon color='terciary'/></InputAdornment>,
                                     },
                                 }}
-                            />                    
+                                />                    
                         </FormControl>
                         
                         <FormControl>
@@ -70,6 +113,8 @@ export default function Login() {
 
                         <FormControl variant='filled' sx={{width: '100%'}} >
                             <TextField
+                                name='password'
+                                error={errorPassword}
                                 variant='filled'
                                 color='terciary'
                                 label="Password"
@@ -77,14 +122,14 @@ export default function Login() {
                                 sx={{width: '100%'}}
                                 slotProps={{
                                     input: {
-                                    endAdornment: <InputAdornment> <RemoveRedEyeIcon color='terciary'/></InputAdornment>,
+                                        endAdornment: <InputAdornment> <RemoveRedEyeIcon color='terciary'/></InputAdornment>,
                                     },
                                 }}
-                            />              
+                                />              
                         </FormControl>
 
                         <FormControl sx={{width: '100%', paddingBlock: 2}}>
-                            <Button variant="contained" color='secondary' sx={{borderRadius: 0}}>Login</Button>
+                            <Button type='submit' variant="contained" color='secondary' sx={{borderRadius: 0}}>Login</Button>
                         </FormControl>
 
                             <Divider sx={{paddingBottom: 2}}>
@@ -103,6 +148,7 @@ export default function Login() {
                         </FormControl>
                     </Box>
                 </Box>
+            </form>
             </Container>
         </Box>
         </>
