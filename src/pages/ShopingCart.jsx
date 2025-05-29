@@ -6,7 +6,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 //import Footer from "../components/Footer";
 
 
-export default function HomePage() {
+export default function ShopingCart() {
     return(
     <Box>
         <Box>

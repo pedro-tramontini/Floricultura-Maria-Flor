@@ -6,6 +6,8 @@ import Home from "./components/Home";
 import RegisterFlower from "./pages/RegisterFlower";
 import LoggedPage from "./pages/LoggedPage";
 import HomeLogged from "./components/HomeLogged";
+import ShopingCart from "./pages/ShopingCart";
+import ShoppingCartFlowers from "./components/ShoppingCartFlowers";
 
 export const router = createBrowserRouter([
     { path: '/login',
@@ -27,6 +29,16 @@ export const router = createBrowserRouter([
     { path: '/registerflower',
       element: <RegisterFlower />,
       children: []
+    },
+    { path: '/shopingcart',
+      element: <ShopingCart />,
+      children: [
+        {
+          path: 'shoppingcartflowers',
+          element: <ShoppingCartFlowers />,
+          children: []
+        }
+      ]
     },
 
     //Página logada

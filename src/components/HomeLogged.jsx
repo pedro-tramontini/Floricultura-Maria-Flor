@@ -20,7 +20,7 @@ export default function Home() {
     })
 
         const deleteCard = (id) => {
-        axios.delete(`https://localhost:8000/Cards/${id}`)
+        axios.delete(`http://localhost:8000/Cards/${id}`)
             .then(() => {
                 setFlores(flores.filter(id => flor.id !== id))
             })
@@ -36,7 +36,7 @@ export default function Home() {
             <Grid size={{xs: 12, md: 6}} container spacing={2} sx={{display: "flex", alignItems: 'center', justifyContent: 'center', padding: 2, paddingTop: 10}}>
                 {flores.map(flor => (
                     <Grid  sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} key={flor.id}>
-                        <CardFlower flor={flor} deleteCard={deleteCard} icone={<DeleteIcon fontSize="large" color="secondary"/>}/>
+                        <CardFlower flor={flor} modoAdmin={true} deleteCard={deleteCard} icone={<DeleteIcon fontSize="large" color="secondary"/>}/>
                     </Grid>
                 ))}
             </Grid>
