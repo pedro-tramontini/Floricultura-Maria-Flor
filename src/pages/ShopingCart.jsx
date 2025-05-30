@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, IconButton, Toolbar, Typography} from "@mui/material";
+import { AppBar, Box, Toolbar, Typography} from "@mui/material";
 import { Outlet } from "react-router-dom";
 import logo from "../assets/logo.png"
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';

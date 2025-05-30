@@ -12,12 +12,22 @@ export default function Home() {
     useEffect(() => {
         axios.get("http://localhost:8000/Cards")
             .then(response => {
-                setFlores(response.data)                
+                setFlores(response.data)              
             })
             .catch(function (error) {
                 console.log(error)
             })
     })
+        // const cartItem = JSON.stringify(flores);
+        console.log(cartItem)
+    // const salvarNoCarrinho = () => {
+    //         axios.post('http://localhost:8000/CartItems', {
+    //         "nome": data.get('nome'),
+    //         "variety": data.get('variedade'),
+    //         "Preço": data.get('preco')
+    //        })
+    //     }
+    // }
 
 
     return(

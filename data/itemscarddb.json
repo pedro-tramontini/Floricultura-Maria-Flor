@@ -1,0 +1,11 @@
+{
+  "CartItems": [
+    {
+        "id": "1",
+        "nome": "flor_tal",
+        "tipo": "buquê",
+        "preço": "199,99"
+
+    }
+  ]
+}

@@ -2,7 +2,6 @@ import { Box, Grid} from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CardFlower from "./CardFlower";
-import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function ShoppingCartFlowers() {
 
@@ -18,6 +17,8 @@ export default function ShoppingCartFlowers() {
                 console.log(error)
             })
     })
+
+
 
     return(
     <Box component="section" sx={{minHeight: "100vh", display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
