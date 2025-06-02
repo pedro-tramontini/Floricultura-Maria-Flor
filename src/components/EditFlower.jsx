@@ -2,11 +2,35 @@ import { Box, Button, Grid, InputAdornment, MenuItem, TextField} from '@mui/mate
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import FormControl from '@mui/material/FormControl';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 
-export default function RegisterFlower() {
+export default function EditFlower() {
+
+    //pega os dados da fakeApi para ter como "cache"
+    // const [data, setData] = useState([])
+    const {id} = useParams()
+
+    const [values, setValues] = useState({
+        nome: '',
+        variedade: '',
+        preço: '',
+    })
+    
+    useEffect(() => {
+        axios.get('http://localhost:8000/Cards/' + id)
+        .then(response => {
+            setValues(response.data)
+            })
+            .catch(function (error) {
+                console.log(error)
+            })  
+            
+    })
+
+
     const [errorName, setErrorName] = useState(false)
     const [errorPreco, setErrorPreco] = useState(false)
 
@@ -63,7 +87,7 @@ export default function RegisterFlower() {
                     <Box sx={{padding: 1}}>
                         <form noValidate onSubmit={handleSubmit} id='form-new'>
                             <FormControl>
-                                <Typography variant='h5' color='terciary' sx={{paddingBlock: 1}}>Cadastro de Flores</Typography>
+                                <Typography variant='h5' color='terciary' sx={{paddingBlock: 1}}>Edição Cadastro de Flores</Typography>
                             </FormControl>
                             
                             <FormControl variant='filled' sx={{width: '100%'}} >
@@ -78,6 +102,8 @@ export default function RegisterFlower() {
                                     label="Nome"
                                     id="outlined-start-adornment"
                                     sx={{width: '100%'}}
+                                    value={values.nome}
+                                    onChange={e => setValues({...values, nome: e.target.value})}
                                     />                    
                             </FormControl>
                             
@@ -100,6 +126,8 @@ export default function RegisterFlower() {
                                             color='terciary'
                                             id="outlined-start-adornment"
                                             sx={{width: '100%'}}
+                                            value={values.variedade}
+                                            onChange={e => setValues({...values, variedade: e.target.value})}
                                             >
                                         {tipos_flores.map((option) => (
                                             <MenuItem key={option.value} value={option.value}>
@@ -120,18 +148,20 @@ export default function RegisterFlower() {
                                 <TextField 
                                         error={errorPreco}
                                         name='preco'
-                                    slotProps={{
-                                        input: {
-                                            startAdornment: <InputAdornment position="start">$</InputAdornment>,
-                                        },}}
-                                        type='text'
-                                        required
-                                        variant='filled'
-                                        color='terciary'
-                                        label="Preço"
-                                        id="outlined-start-adornment"
-                                        sx={{width: '100%'}}
-                                    />              
+                                        slotProps={{
+                                            input: {
+                                                startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                            },}}
+                                            type='text'
+                                            required
+                                            variant='filled'
+                                            color='terciary'
+                                            label="Preço"
+                                            id="outlined-start-adornment"
+                                            sx={{width: '100%'}}
+                                            value={values.preço}
+                                            onChange={e => setValues({...values, preço: e.target.value})}
+                                            />              
                             </FormControl>
 
                             <FormControl sx={{width: '100%', paddingBlock: 2}}>

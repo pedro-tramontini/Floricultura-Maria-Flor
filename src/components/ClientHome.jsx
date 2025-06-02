@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import CardFlower from "./CardFlower";
 import AddIcon from '@mui/icons-material/Add';
 
-export default function Home() {
+export default function ClientHome() {
     
     const[flores, setFlores] = useState([]);
 
@@ -19,7 +19,7 @@ export default function Home() {
             })
     })
         // const cartItem = JSON.stringify(flores);
-        console.log(cartItem)
+        // console.log(cartItem)
     // const salvarNoCarrinho = () => {
     //         axios.post('http://localhost:8000/CartItems', {
     //         "nome": data.get('nome'),
@@ -36,7 +36,7 @@ export default function Home() {
             <Grid size={{xs: 12, md: 6}} container spacing={2} sx={{display: "flex", alignItems: 'center', justifyContent: 'center', padding: 3, paddingTop: 10}}>
                 {flores.map(flor => (
                     <Grid  sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} key={flor.id}>
-                        <CardFlower flor={flor} modoAdmin={false} icone={<AddIcon fontSize="large" color="success"/>}/>
+                        <CardFlower flor={flor} modoAdmin={false} iconeAdd={<AddIcon fontSize="large" color="success"/>}/>
                     </Grid>
                 ))}
             </Grid>

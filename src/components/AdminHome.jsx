@@ -3,8 +3,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import CardFlower from "./CardFlower";
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
-export default function Home() {
+export default function AdminHome() {
 
 
     const[flores, setFlores] = useState([]);
@@ -36,7 +37,7 @@ export default function Home() {
             <Grid size={{xs: 12, md: 6}} container spacing={2} sx={{display: "flex", alignItems: 'center', justifyContent: 'center', padding: 2, paddingTop: 10}}>
                 {flores.map(flor => (
                     <Grid  sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} key={flor.id}>
-                        <CardFlower flor={flor} modoAdmin={true} deleteCard={deleteCard} icone={<DeleteIcon fontSize="large" color="secondary"/>}/>
+                        <CardFlower flor={flor} modoAdmin={true} deleteCard={deleteCard} iconeEdit={<EditIcon fontSize="large"/>} iconeDelete={<DeleteIcon fontSize="large" color="secondary"/>}/>
                     </Grid>
                 ))}
             </Grid>
