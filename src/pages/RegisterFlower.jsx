@@ -91,6 +91,7 @@ export default function RegisterFlower() {
                                     <FormControl variant='filled' sx={{width: '100%'}} >
                                         <TextField
                                             name="variedade"
+                                            label="Tipo"
                                             select defaultValue="Arranjo Florais"
                                             label="Tipo"
                                             helperText="Por favor, selectione a categoria da flor"

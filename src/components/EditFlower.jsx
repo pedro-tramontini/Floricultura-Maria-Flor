@@ -1,4 +1,4 @@
-import { Box, Button, Grid, InputAdornment, MenuItem, TextField} from '@mui/material'
+import { Box, Button, Grid, InputAdornment, MenuItem, Select, TextField} from '@mui/material'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import FormControl from '@mui/material/FormControl';
@@ -13,22 +13,30 @@ export default function EditFlower() {
     // const [data, setData] = useState([])
     const {id} = useParams()
 
-    const [values, setValues] = useState({
-        nome: '',
-        variedade: '',
-        preço: '',
-    })
+    // const [values, setValues] = useState({
+    //     nome: '',
+    //     variedade: '',
+    //     preço: '',
+    // })
+    const [nome, setNome] = useState("");
+    const [variedadeRec, setVariedadeRec] = useState("");
+    const [preço, setPreço] = useState("");
     
     useEffect(() => {
         axios.get('http://localhost:8000/Cards/' + id)
         .then(response => {
-            setValues(response.data)
+            const data = response.data
+            setNome(data.nome)
+            setVariedadeRec(data.variedade)
+            setPreço(data.preço)
             })
             .catch(function (error) {
                 console.log(error)
-            })  
-            
-    })
+            })              
+    }, [])
+
+    const handleChangeState = (event) => {setVariedadeRec(event.target.value) }
+
 
 
     const [errorName, setErrorName] = useState(false)
@@ -49,13 +57,15 @@ export default function EditFlower() {
         }
 
         if (data.get('nome') && data.get('preco')) {
-            axios.post('http://localhost:8000/Cards', {
+            axios.put(`http://localhost:8000/Cards/`+id, {
             "nome": data.get('nome'),
             "variedade": data.get('variedade'),
             "preço": data.get('preco')
            })
         }
     }
+
+
     
     const tipos_flores = [
         {
@@ -95,15 +105,14 @@ export default function EditFlower() {
                                 <TextField
                                     name='nome'
                                     error={errorName}
-                                    slotProps={{htmlInput: { maxLength: 60 }}}                         
+                                    defaultValue={nome}
+                                    slotProps={{htmlInput: { maxLength: 60 }, inputLabel: { shrink: true }}}                         
                                     required
                                     variant='filled'
                                     color='terciary'
                                     label="Nome"
                                     id="outlined-start-adornment"
                                     sx={{width: '100%'}}
-                                    value={values.nome}
-                                    onChange={e => setValues({...values, nome: e.target.value})}
                                     />                    
                             </FormControl>
                             
@@ -115,26 +124,14 @@ export default function EditFlower() {
 
                                 <Grid size={{md: 9, xs: 12}}>
                                     <FormControl variant='filled' sx={{width: '100%'}} >
-                                        <TextField
-                                            name="variedade"
-                                            select defaultValue="Arranjo Florais"
-                                            label="Tipo"
-                                            helperText="Por favor, selectione a categoria da flor"
-                                            slotProps={{htmlInput: { maxLength: 11, minLength: 11 }}}
-                                            required
-                                            variant='filled'
-                                            color='terciary'
-                                            id="outlined-start-adornment"
-                                            sx={{width: '100%'}}
-                                            value={values.variedade}
-                                            onChange={e => setValues({...values, variedade: e.target.value})}
-                                            >
-                                        {tipos_flores.map((option) => (
-                                            <MenuItem key={option.value} value={option.value}>
-                                                {option.label}
+                                       
+                                        <Select name='variedades' defaultValue={variedadeRec} value={variedadeRec} onChange={handleChangeState}>
+                                        {tipos_flores.map((estado) => (
+                                            <MenuItem key={estado.value} value={estado.value}>
+                                                {estado.label}
                                             </MenuItem>
                                         ))}
-                                        </TextField>              
+                                        </Select>
                                     </FormControl>
                                 </Grid>
 
@@ -147,11 +144,12 @@ export default function EditFlower() {
                             <FormControl variant='filled' sx={{width: '100%'}} >
                                 <TextField 
                                         error={errorPreco}
-                                        name='preco'
-                                        slotProps={{
-                                            input: {
-                                                startAdornment: <InputAdornment position="start">$</InputAdornment>,
-                                            },}}
+                                            name='preco'
+                                            defaultValue={preço}
+                                            slotProps={{
+                                                input: {
+                                                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                                },}}
                                             type='text'
                                             required
                                             variant='filled'
@@ -159,8 +157,6 @@ export default function EditFlower() {
                                             label="Preço"
                                             id="outlined-start-adornment"
                                             sx={{width: '100%'}}
-                                            value={values.preço}
-                                            onChange={e => setValues({...values, preço: e.target.value})}
                                             />              
                             </FormControl>
 

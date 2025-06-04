@@ -1,214 +1,22 @@
 {
   "Cards": [
     {
-      "id": "f898",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
+      "nome": "rosas do deserto",
+      "variedade": null,
+      "preço": "199,99",
+      "id": "f898"
     },
     {
-      "id": "705b",
-      "nome": "flor_janeiro",
+      "nome": "rosas",
       "variedade": "Arranjo Florais",
-      "preço": "199,99"
+      "preço": "200,99",
+      "id": "705b"
     },
     {
-      "id": "9d4a",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "1a8f",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "bec2",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "45a0",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "e0ed",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "0ea5",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "ea7d",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "94bb",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "6193",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "c37e",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "21b0",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "399a",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "88c5",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "cb45",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "7617",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "421e",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "8b12",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "2036",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "5dbf",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "f2a5",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "c79f",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "448c",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "1a94",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "6f03",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "c13e",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "745b",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "6b1a",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "8a67",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "3651",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "cecb",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "3b9a",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "d471",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
-    },
-    {
-      "id": "a092",
-      "nome": "flor_janeiro",
-      "variedade": "Arranjo Florais",
-      "preço": "199,99"
+      "id": "9f75",
+      "nome": "rosa",
+      "variedade": "Kit",
+      "preço": "200,00"
     }
   ]
 }
