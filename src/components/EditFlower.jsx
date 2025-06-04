@@ -10,14 +10,8 @@ import { useParams } from 'react-router-dom';
 export default function EditFlower() {
 
     //pega os dados da fakeApi para ter como "cache"
-    // const [data, setData] = useState([])
     const {id} = useParams()
 
-    // const [values, setValues] = useState({
-    //     nome: '',
-    //     variedade: '',
-    //     preço: '',
-    // })
     const [nome, setNome] = useState("");
     const [variedadeRec, setVariedadeRec] = useState("");
     const [preço, setPreço] = useState("");
@@ -125,7 +119,7 @@ export default function EditFlower() {
                                 <Grid size={{md: 9, xs: 12}}>
                                     <FormControl variant='filled' sx={{width: '100%'}} >
                                        
-                                        <Select name='variedades' defaultValue={variedadeRec} value={variedadeRec} onChange={handleChangeState}>
+                                        <Select name='variedade' defaultValue={variedadeRec} value={variedadeRec} onChange={handleChangeState}>
                                         {tipos_flores.map((estado) => (
                                             <MenuItem key={estado.value} value={estado.value}>
                                                 {estado.label}
