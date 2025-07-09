@@ -7,23 +7,23 @@ import EditIcon from '@mui/icons-material/Edit';
 
 export default function AdminHome() {
 
+        const[floresAdmin, setFloresAdmin] = useState([]);
 
-    const[flores, setFlores] = useState([]);
-
+        
     useEffect(() => {
-        axios.get("http://localhost:8000/Cards")
-            .then(response => {
-                setFlores(response.data)                
-            })
-            .catch(function (error) {
-                console.log(error)
-            })
-    })
+    axios.get("http://localhost:3000/listar-produto")
+        .then(response => {
+        setFloresAdmin(response.data);
+        })
+        .catch(error => {
+        console.error("Erro ao buscar dados", error);
+        });
+    }, []);
 
         const deleteCard = (id) => {
-        axios.delete(`http://localhost:8000/Cards/${id}`)
+        axios.delete(`http://localhost:3000/deletar-produto/${id}`)
             .then(() => {
-                setFlores(flores.filter(id => flor.id !== id))
+                setFloresAdmin(floresAdmin.filter(id => flor.id !== id))
             })
             .catch((error) => {
                 console.log('Erro ao deletar', error)
@@ -35,7 +35,7 @@ export default function AdminHome() {
     <Box component="section" sx={{minHeight: "100vh", display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <Box sx={{maxWidth: '80%'}}>
             <Grid size={{xs: 12, md: 6}} container spacing={2} sx={{display: "flex", alignItems: 'center', justifyContent: 'center', padding: 2, paddingTop: 10}}>
-                {flores.map(flor => (
+                {floresAdmin.map(flor => (
                     <Grid  sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} key={flor.id}>
                         <CardFlower flor={flor} modoAdmin={true} deleteCard={deleteCard} iconeEdit={<EditIcon fontSize="large"/>} iconeDelete={<DeleteIcon fontSize="large" color="secondary"/>}/>
                     </Grid>

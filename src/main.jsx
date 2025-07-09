@@ -6,9 +6,7 @@ import { theme } from './themes/themes'
 import { ThemeProvider } from '@emotion/react'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
     <ThemeProvider theme={theme}>
       <RouterProvider router={router}/>
     </ThemeProvider>
-  </StrictMode>,
 )

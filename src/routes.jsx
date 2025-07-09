@@ -9,6 +9,8 @@ import ShoppingCartFlowers from "./components/ShoppingCartFlowers";
 import AdminHome from "./components/AdminHome";
 import ClientHome from "./components/ClientHome";
 import EditFlower from "./components/EditFlower";
+import RegisterFornecedor from "./pages/RegisterFornecedor";
+import RegisterFuncionario from "./pages/RegisterFuncionario";
 
 export const router = createBrowserRouter([
     { path: '/login',
@@ -25,6 +27,14 @@ export const router = createBrowserRouter([
     },
     { path: '/register',
       element: <Register />,
+      children: []
+    },
+    { path: '/register-fornecedor',
+      element: <RegisterFornecedor />,
+      children: []
+    },
+    { path: '/register-funcionario',
+      element: <RegisterFuncionario />,
       children: []
     },
     { path: '/registerflower',
@@ -54,13 +64,13 @@ export const router = createBrowserRouter([
       children: [
         //Página logada sendo admin
         {
-          path: 'admin',
+          path: 'administrador',
           element: <AdminHome />,
           children:[]
         },
         //Página logada sendo usuário normal
         {
-          path: 'client',
+          path: 'cliente',
           element: <ClientHome />,
           children:[]
         }

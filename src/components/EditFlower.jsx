@@ -14,15 +14,16 @@ export default function EditFlower() {
 
     const [nome, setNome] = useState("");
     const [variedadeRec, setVariedadeRec] = useState("");
-    const [preço, setPreço] = useState("");
+    const [preço, setPreço] = useState();
     
     useEffect(() => {
-        axios.get('http://localhost:8000/Cards/' + id)
+        axios.get(`http://localhost:3000/listar-produto/${id}`)
         .then(response => {
             const data = response.data
+            console.log(data)
             setNome(data.nome)
-            setVariedadeRec(data.variedade)
-            setPreço(data.preço)
+            setVariedadeRec(data.tipo)
+            setPreço(data.preco)
             })
             .catch(function (error) {
                 console.log(error)
@@ -51,10 +52,10 @@ export default function EditFlower() {
         }
 
         if (data.get('nome') && data.get('preco')) {
-            axios.put(`http://localhost:8000/Cards/`+id, {
+            axios.put(`http://localhost:3000/atualizar-produto/${id}`, {
             "nome": data.get('nome'),
-            "variedade": data.get('variedade'),
-            "preço": data.get('preco')
+            "tipo": data.get('variedade'),
+            "preco": data.get('preco')
            })
         }
     }

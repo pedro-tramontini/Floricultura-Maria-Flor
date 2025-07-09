@@ -25,11 +25,12 @@ export default function RegisterFlower() {
         }
 
         if (data.get('nome') && data.get('preco')) {
-            axios.post('http://localhost:8000/Cards', {
+            axios.post('http://localhost:3000/cadastrar-produto', {
             "nome": data.get('nome'),
-            "variedade": data.get('variedade'),
-            "preço": data.get('preco')
+            "tipo": data.get('tipo'),
+            "preco": parseInt(data.get('preco'))
            })
+           
         }
     }
     
@@ -90,10 +91,9 @@ export default function RegisterFlower() {
                                 <Grid size={{md: 9, xs: 12}}>
                                     <FormControl variant='filled' sx={{width: '100%'}} >
                                         <TextField
-                                            name="variedade"
+                                            name="tipo"
                                             label="Tipo"
                                             select defaultValue="Arranjo Florais"
-                                            label="Tipo"
                                             helperText="Por favor, selectione a categoria da flor"
                                             slotProps={{htmlInput: { maxLength: 11, minLength: 11 }}}
                                             required

@@ -9,13 +9,13 @@ export default function CardFlower({flor, iconeDelete, iconeEdit, deleteCard, ic
     const navigate = useNavigate()
 
     return(
-        <Card sx={{minHeight: 250, minWidth: 350, width: 350, height: 350}}>
-            <CardMedia sx={{height:'60%', border: 1}} >Imagem</CardMedia>
-            <CardContent sx={{display: 'flex', justifyContent: 'space-between'}}>
+        <Card sx={{minHeight: 250, minWidth: 350, width: 350, height: 400}}>
+            <CardMedia sx={{height:'60%', objectFit: 'scale-down'}} image="/flor_referencia.png" />
+            <CardContent sx={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
                 <Box>
                     <Typography gutterBottom variant='h5'>{flor.nome}</Typography>                
-                    <Typography variant='body2' sx={{color: 'text.secondary'}}>{flor.variedade}</Typography>                
-                    <Typography variant='body2' sx={{color: 'text.secondary'}}>{flor.preço}</Typography>
+                    <Typography variant='body2' sx={{color: 'text.secondary'}}>{flor.tipo}</Typography>                
+                    <Typography variant='body2' sx={{color: 'text.secondary'}}>R$ {flor.preco}</Typography>
                 </Box>
                 <Box>
                     {modoAdmin ? (

@@ -1,4 +1,4 @@
-import { Box, Button, Chip, Divider, Grid, InputAdornment, Link, Stack, TextField, ThemeProvider } from '@mui/material'
+ import { Box, Button, Chip, Divider, Grid, InputAdornment, Link, Stack, TextField, ThemeProvider } from '@mui/material'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import FormControl from '@mui/material/FormControl';
@@ -9,7 +9,7 @@ import axios from 'axios';
 
 
 
-export default function Register() {
+export default function RegisterFuncionario() {
     const navigate = useNavigate()
     const [errorNome, setErrorNome] = useState(false)
     const [errorTelefone, setErrorTelefone] = useState(false)
@@ -59,13 +59,13 @@ export default function Register() {
             }
         
         if (data.get('nome') && data.get('telefone') && data.get('email') && data.get('rua') && data.get('número') && data.get('bairro') && data.get('cep')) {
-            axios.post('http://localhost:3000/cadastrar-cliente', {
+            axios.post('http://localhost:3000/cadastrar-funcionario', {
                 pessoa: {
                     nome: data.get('nome'),
                     email: data.get('email')
                 },
-                cliente: {
-                    cpf: data.get('cpf') // supondo que tenha esse campo
+                funcionario: {
+                    cargo: data.get('cargo') // supondo que tenha esse campo
                 },
                 telefone: {
                     numero: data.get('telefone') // ou ddd + telefone, se quiser juntar
@@ -96,7 +96,7 @@ export default function Register() {
                     <Box sx={{padding: 1}}>
                         <form noValidate onSubmit={handleSubmit} id='form-new'>
                             <FormControl>
-                                <Typography variant='h5' color='terciary' sx={{paddingBlock: 1}}>Cadastro Cliente</Typography>
+                                <Typography variant='h5' color='terciary' sx={{paddingBlock: 1}}>Cadastro Funcionário</Typography>
                             </FormControl>
                             
                             <FormControl variant='filled' sx={{width: '100%'}} >
@@ -116,15 +116,15 @@ export default function Register() {
                             </FormControl>
 
                             <FormControl variant='filled' sx={{width: '100%'}} >
-                                <Typography variant='body1' color='terciary' sx={{paddingBlock: 1}}>Cpf</Typography>
+                                <Typography variant='body1' color='terciary' sx={{paddingBlock: 1}}>Cargo</Typography>
                                 <TextField
-                                    name='cpf'
+                                    name='cargo'
                                     error={errorNome}           
                                     slotProps={{htmlInput: { maxLength: 60 }}}                         
                                     required
                                     variant='filled'
                                     color='terciary'
-                                    label="Cpf"
+                                    label="Cargo"
                                     id="outlined-start-adornment"
                                     sx={{width: '100%'}}
                                     
